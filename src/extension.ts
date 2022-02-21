@@ -6,12 +6,12 @@ export function activate(context: vscode.ExtensionContext) {
 		const editor = vscode.window.activeTextEditor;
 
 		if (editor) {
-			const document = editor.document;
-			const selection = editor.selection;
+			const document: vscode.TextDocument = editor.document;
+			const selection: vscode.Selection = editor.selection;
 
 			// Get the word within the selection
-			const data = document.getText(selection);
-			let result = data.match(/id="[A-za-z0-9-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]+"/g).join('').match(/\".*?\"/g).join(' ').split(' ');
+			const data: string = document.getText(selection);
+			let result: string[] = data.match(/id="[A-za-z0-9-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]+"/g).join('').match(/\".*?\"/g).join(' ').split(' ');
 			let copy: string = result.map(el => `let ${el.replace('"', '').slice(0, el.length - 2)} = document.getElementById(${el});\n`).join('');
 			vscode.env.clipboard.writeText(copy);
 		}
