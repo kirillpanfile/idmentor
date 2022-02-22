@@ -13,9 +13,9 @@ Open any document contain HTML and do one of the following:
 
 ![alt](/static/code.png)
 
-## Requirements
+## Example
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![alt](/static/code.gif)
 
 ## Extension Settings
 
