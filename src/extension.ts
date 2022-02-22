@@ -8,8 +8,8 @@ export function activate(context: vscode.ExtensionContext) {
 			const selection: vscode.Selection = editor.selection;
 			const documentTextSelection: string = document.getText(selection);
 			const ids: string = textBuilder.getID(documentTextSelection);
-			const classes: string = textBuilder.getClass(documentTextSelection);
-			vscode.env.clipboard.writeText(ids.concat(classes));
+			// const classes: string = textBuilder.getClass(documentTextSelection);
+			vscode.env.clipboard.writeText(ids/*.concat(classes)*/);
 		}
 	});
 	context.subscriptions.push(disposable);
