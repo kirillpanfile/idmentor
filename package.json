@@ -17,6 +17,9 @@
     "commands": [
       {
         "command": "idmentor.IDMentor",
+        "key": "ctrl+alt+i",
+        "mac": "cmd+alt+i",
+        "when": "editorTextFocus",
         "title": "IDMentor"
       }
     ]
