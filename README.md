@@ -11,11 +11,11 @@ Open any document contain HTML and do one of the following:
 
 > Tip: You can select only a code sequence, it's not necessary to select all the page.
 
-![alt](/static/code.png)
+![img](https://raw.githubusercontent.com/kirillpanfile/idmentor/master/static/code.png)
 
 ## Example
 
-![alt](/static/code.gif)
+![gif](https://raw.githubusercontent.com/kirillpanfile/idmentor/master/static/code.gif)
 
 ## Release Notes
 
