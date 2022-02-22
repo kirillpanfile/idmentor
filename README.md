@@ -11,6 +11,8 @@ Open any document contain HTML and do one of the following:
 
 > Tip: You can select only a code sequence, it's not necessary to select all the page.
 
+![alt](/static/code.png)
+
 ## Requirements
 
 If you have any requirements or dependencies, add a section describing those and how to install and configure them.
