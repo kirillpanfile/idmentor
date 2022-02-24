@@ -34,7 +34,7 @@ export function getClass(documentTextSelection: string): string {
             return tempData
                 .map(el => `const ${el
                     .replace('"', '')
-                    .slice(0, el.length - 2)} = document.querySelector(${el});\n`)
+                    .slice(0, el.length - 2)} = document.querySelector(.${el});\n`)
                 .join('');
         }
         else {
@@ -42,7 +42,7 @@ export function getClass(documentTextSelection: string): string {
             tempData = [...new Set(tempData)];
             return tempData.map(el => {
                 return duplicateData.includes(el) ? `const ${clear(el)} = document.querySelectorAll(".${clear(el)}");\n` :
-                    `const ${clear(el)} = document.querySelector(${el});\n`;
+                    `const ${clear(el)} = document.querySelector(.${el});\n`;
             }).join('');
         }
     }
