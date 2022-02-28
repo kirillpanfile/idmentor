@@ -3,7 +3,7 @@ import cfg from './cfg';
 const toFindDuplicates = (arr: string[]): string[] => arr.filter((item: string, index: number) => arr.indexOf(item) !== index);
 const clear = (el: string): string => el.replace('"', '').slice(0, el.length - 2);
 export function getID(documentTextSelection: string): string {
-    let tempData: RegExpMatchArray | null = documentTextSelection.match(cfg.id)
+    let tempData: RegExpMatchArray | null = documentTextSelection.match(cfg.id);
     if (tempData) {
         tempData = tempData
             .join('')!.match(cfg.idJunk)!.join(' ').split(' ');
@@ -27,7 +27,7 @@ export function getID(documentTextSelection: string): string {
 }
 
 export function getClass(documentTextSelection: string): string {
-    let tempData: RegExpMatchArray | null = documentTextSelection.match(cfg.class)
+    let tempData: RegExpMatchArray | null = documentTextSelection.match(cfg.class);
     if (tempData) {
         tempData = tempData.join('')!.match(cfg.idJunk)!.join(' ').split(' ');
         if (toFindDuplicates(tempData).length === 0) {
