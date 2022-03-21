@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-import * as textBuilder from './utils/textBuilder'
+import * as textBuilder from './utils/textBuilder';
+import config from "./config";
 export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('idmentor.IDMentor', async function () {
 		const editor = vscode.window.activeTextEditor;
