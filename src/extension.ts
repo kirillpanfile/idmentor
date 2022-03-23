@@ -10,7 +10,8 @@ export function activate(context: vscode.ExtensionContext) {
 			const documentTextSelection: string = document.getText(selection);
 			const ids: string = textBuilder.getID(documentTextSelection);
 			const classes: string = textBuilder.getClass(documentTextSelection);
-			vscode.env.clipboard.writeText(ids.concat(classes));
+			const dataAttributes = textBuilder.getByData(documentTextSelection)
+			vscode.env.clipboard.writeText(ids.concat(classes).concat(dataAttributes));
 		}
 	});
 	context.subscriptions.push(disposable);

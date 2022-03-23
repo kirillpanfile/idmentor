@@ -66,3 +66,30 @@ export function getClass(documentTextSelection: string): string {
     }
     return '';
 }
+
+export function getByData(documentTextSelection: string) : string {
+    let tempData: RegExpMatchArray | null = documentTextSelection.match(cfg.data);
+    if (tempData) {
+        tempData = tempData.join('')!.match(cfg.idJunk)!.join(' ').split(' ');
+        if (toFindDuplicates(tempData).length === 0) {
+            return tempData
+                .map(el => `const ${toCamelCase(el)
+                    .replace('"', '')
+                    .slice(0, el.length - 2)} = document.querySelector("[${clear(el)}"]);\n`)
+                .join('');
+        }
+        else {
+            const duplicateData: string[] = toFindDuplicates(tempData);
+            tempData = [...new Set(tempData)];
+            return tempData.map(el => {
+                return duplicateData.includes(el) ? `const ${toCamelCase(el)
+                    .replace('"', '')
+                    .slice(0, el.length - 2)} = document.querySelectorAll("[${clear(el)}]");\n` :
+                    `const ${toCamelCase(el)
+                        .replace('"', '')
+                        .slice(0, el.length - 2)} = document.querySelector("[${clear(el)}]");\n`;
+            }).join('');
+        }
+    }
+    return '';
+}
